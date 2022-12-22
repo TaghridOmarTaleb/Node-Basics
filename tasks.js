@@ -83,7 +83,7 @@ function quit(){
   process.exit();
 }
 
-//functon help
+//this function lists all the possible commands
 function help(){
   console.log( "quit/exit and hello"  )
 }
