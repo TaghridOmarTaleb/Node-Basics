@@ -1,3 +1,4 @@
+const { addListener } = require("nodemon");
 
 /**
  * Starts the application
@@ -42,12 +43,18 @@ function onDataReceived(text) {
   else if(text.trim().startsWith('hello')){
     hello();
   }
-  else if( text.trim()){
+  else if( text.trim().startsWith('help')){
 
   help();
+}
+
+
+  else if(text === 'list\n'){
+    list();
+  }
     
 
-  }
+  
   else{
     unknownCommand(text);
   }
@@ -91,6 +98,15 @@ function help(text){
 
   //console.log( "quit/exit and hello"  )
 }
+
+//function list (lists all tasks)
+var tasklist=["task_1" ,"task_2"]
+function list(){
+  tasklist.map((element,index) =>{
+console.log(`${index +1} - []${element}`)
+  })
+}
+
 
 // The following line starts the application
 startApp("Taghrid")
