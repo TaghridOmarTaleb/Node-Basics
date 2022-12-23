@@ -56,6 +56,12 @@ function onDataReceived(text) {
   else if(text.split(" ")[0]=== 'add'){
     add(text);
   }
+  // else if(text === 'remove\n' || text === 'remove 1\n' || text === 'remove 2\n'){
+  //   remove(text)
+  // }
+  else if(text.startsWith('remove') ){
+    remove(text)
+  }
   
   else{
     unknownCommand(text);
@@ -119,6 +125,16 @@ function add(task){
   tasklist.push(task)
  }
 }
+
+function remove(element){
+  if(element === 'remove\n') {
+    tasklist.pop()
+  } else {
+    element = element.replace('\n', '').trim()
+    element = element.split(" ").slice(1).join(' ');
+    tasklist.splice(parseInt(element) - 1,1)
+    if(parseInt(element) > tasklist.length) console.log("not available number");
+  }}
 
 
 // The following line starts the application
