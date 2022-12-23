@@ -129,6 +129,9 @@ function add(task){
 function remove(element){
   if(element === 'remove\n') {
     tasklist.pop()
+    removable = parseInt(removable.split(" ").slice(1).join(' '));
+       tasksList.splice(removable - 1,1);
+       if(removable > tasksList.length) console.log("number does not exist")
   } else {
     element = element.replace('\n', '').trim()
     element = element.split(" ").slice(1).join(' ');
