@@ -42,9 +42,10 @@ function onDataReceived(text) {
   else if(text.trim().startsWith('hello')){
     hello();
   }
-  else if( text === 'help\n')
+  else if( text.trim().startsWith('help')){
 
-  {help();
+  help();
+    
 
   }
   else{
@@ -86,8 +87,9 @@ function quit(){
 }
 
 //this function lists all the possible commands
-function help(){
-  console.log( "quit/exit and hello"  )
+function help(text){
+
+  //console.log( "quit/exit and hello"  )
 }
 
 // The following line starts the application
