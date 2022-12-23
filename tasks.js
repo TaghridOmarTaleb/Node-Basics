@@ -52,6 +52,7 @@ function onDataReceived(text) {
   else if(text === 'list\n'){
     list();
   }
+
     
   else if(text.split(" ")[0]=== 'add'){
     add(text);
@@ -62,7 +63,11 @@ function onDataReceived(text) {
   else if(text.startsWith('remove') ){
     remove(text)
   }
-  
+  else if(text.split(" ")[0] === 'edit'){
+    if( text ==='edit\n') 
+     return console.log("error");
+    edit(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -124,6 +129,15 @@ function add(task){
   task=task.split("").slice(1).join(' ');
   tasklist.push(task)
  }
+}
+function edit(n){
+  let task = n.trim().split(" ").slice(1);
+  if(Number.isInteger(parseInt(task[0]))){
+    tasklist[parseInt(task[0] -1 )] = task.slice(1).join(" ");
+  } else {
+    task = task.join(" ");
+  tasklist[tasklist.length -1] = task;
+  }
 }
 
 function remove(element){
