@@ -33,11 +33,13 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+
 function onDataReceived(text) {
+  console.log(text.replace("\n" ,"") + "!".trim().split().join(''))
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
+  else if(text.trim().startsWith('hello')){
     hello();
   }
   else if( text === 'help\n')
@@ -59,7 +61,7 @@ function onDataReceived(text) {
  * @returns {void}
  */
 function unknownCommand(c){
-  console.log('unknown command: "'+c.trim()+'"')
+  console.log('unknown command: "'+ c.trim()+'"')
 }
 
 
@@ -69,7 +71,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(){
-  console.log('hello!')
+  //console.log('hello!')
 }
 
 
