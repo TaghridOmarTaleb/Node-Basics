@@ -53,7 +53,9 @@ function onDataReceived(text) {
     list();
   }
     
-
+  else if(text.split(" ")[0]=== 'add'){
+    add(text);
+  }
   
   else{
     unknownCommand(text);
@@ -105,6 +107,17 @@ function list(){
   tasklist.map((element,index) =>{
 console.log(`${index +1} - []${element}`)
   })
+}
+
+function add(task){
+  if(!task){
+    console.error("errrrooor")
+  }
+ else{
+  task=task.replace('\n','').trim()
+  task=task.split("").slice(1).join(' ');
+  tasklist.push(task)
+ }
 }
 
 
